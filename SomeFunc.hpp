@@ -39,6 +39,15 @@ static bool isValidString(const std::string& other) {
 	}
 	return true;
 }
+static bool isValidFormula(const std::string& other) {
+	int counter = 0;
+	for (size_t i = 0; i < other.size(); i++) {
+		if (other[i] == '=') {
+			counter++;
+		}
+	} 
+	return !(counter - 1);
+}
 template<typename T>
 static unsigned getCharCountFromFile(T& ifs, char ch) {
 	if (ifs.fail()) {

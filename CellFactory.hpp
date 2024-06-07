@@ -15,6 +15,9 @@ static Cell* cellFactory(const Table& t, const std::string& value) {
 		return new StringCell(value);
 	}
 	else if (value[0] == '=') {
+		if (!isValidFormula(value)) {
+			throw std::invalid_argument("This is not correct type of cell.");
+		}
 		return new FormulaCell(value, &t);
 	}
 	else if (size == 0) {
