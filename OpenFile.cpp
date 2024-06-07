@@ -107,6 +107,7 @@ bool OpenFile::isValidFileData(std::ifstream& ifs, unsigned rows) const
 			return false;
 		}
 	}
+	ifs.clear();
 	ifs.seekg(0, std::ios::beg);
 	return true;
 }
